@@ -1,0 +1,253 @@
+/* ------------------------------------
+   ROOT VARIABLES
+-------------------------------------*/
+:root {
+  /* OLD VARS, UPDATED TO GREEN BRAND */
+  --caenyx-blue: #00d27f;      /* old primary → now brand green */
+  --neon: #4be6ae;             /* light neon green */
+  --slate-dark: #0f172a;
+  --bg-100: #f8fafc;
+
+  /* For smooth transitions */
+  --ease-out: cubic-bezier(.22,1,.36,1);
+
+  /* NEW THEME VARIABLES (CENTERED ON #00D27F) */
+  --bg-page: #020617;
+  --bg-soft: #020617;
+  --bg-surface: #f8fafc;
+
+  --accent: #00d27f;        /* primary */
+  --accent-strong: #00b46a; /* darker for text / borders */
+  --accent-soft: #4be6ae;   /* lighter tint */
+  --accent-alt: #00b3a4;    /* teal side accent */
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+}
+
+/* ------------------------------------
+   RESET
+-------------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 210, 127, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 0, rgba(0, 179, 164, 0.14), transparent 55%),
+    var(--bg-100);
+
+  /* Smooth fade-in when loading */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: opacity .45s var(--ease-out);
+}
+
+/* Smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ------------------------------------
+   HERO BACKGROUND (Jeton style)
+-------------------------------------*/
+.hero-bg {
+  background:
+    radial-gradient(1200px 400px at 10% 20%, rgba(0, 210, 127, 0.14), transparent 10%),
+    radial-gradient(900px 300px at 90% 80%, rgba(0, 179, 164, 0.10), transparent 12%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass floating ball */
+.floating-ball {
+  border-radius: 999px;
+  box-shadow: 0 8px 30px rgba(0, 210, 127, 0.22),
+              inset 0 2px 8px rgba(255,255,255,0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(75, 230, 174, 0.25),
+    rgba(0, 210, 127, 0.35)
+  );
+  backdrop-filter: blur(4px);
+}
+
+/* Glowing lines */
+.stripe {
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(75, 230, 174, 0),
+    rgba(75, 230, 174, 0.7),
+    rgba(75, 230, 174, 0)
+  );
+  filter: blur(1px);
+  opacity: 0.3;
+}
+
+/* ------------------------------------
+   KEYFRAMES
+-------------------------------------*/
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes drift {
+  0%   { transform: translateX(0) translateY(0) scale(1); }
+  50%  { transform: translateX(30px) translateY(-10px) scale(1.05); }
+  100% { transform: translateX(0) translateY(0) scale(1); }
+}
+
+@keyframes stripeGlow {
+  0%   { opacity: 0.15; transform: translateX(-10px); }
+  50%  { opacity: 0.6;  transform: translateX(10px); }
+  100% { opacity: 0.15; transform: translateX(-10px); }
+}
+
+/* ====== SIMPLE FADE-UP ANIMATION FOR SECTIONS ====== */
+.sectionFade {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.sectionFadeDelay {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------
+   BASIC UTILITIES
+-------------------------------------*/
+.center {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* ------------------------------------
+   PAGE FADE ON LOAD (Apple Level)
+-------------------------------------*/
+body.is-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Reduce motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}
+
+/* ------------------------------------
+   PARALLAX UTILITY
+-------------------------------------*/
+.parallax-layer {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ------------------------------------
+   MAGNETIC CURSOR (GOD MODE)
+-------------------------------------*/
+.cx-cursor {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: rgba(0, 210, 127, 0.15);
+  box-shadow: 0 0 15px rgba(0, 210, 127, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease;
+}
+
+/* ------------------------------------
+   NEON LASER GRID BACKGROUND
+-------------------------------------*/
+.neon-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  pointer-events: none;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+/* ------------------------------------
+   FLAG BALLS BACKGROUND (CONTACT SECTION)
+-------------------------------------*/
+.flag-balls-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.flag-balls-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

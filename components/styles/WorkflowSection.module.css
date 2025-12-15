@@ -1,0 +1,185 @@
+.wrapper {
+  padding: 120px 96px;
+  background:
+    radial-gradient(circle at 30% 20%, #00D27F33, transparent 60%),
+    radial-gradient(circle at 70% 80%, #0099FF33, transparent 60%),
+    linear-gradient(180deg, #020617, #00040f);
+}
+
+/* 🔥 MAIN CONTAINER */
+.container {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+.left {
+  flex: 0.7;
+  padding: 64px;
+  border-radius: 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(0, 153, 255, 0.45);
+  box-shadow:
+    0 0 120px rgba(0, 210, 127, 0.25),
+    inset 0 0 0 1px rgba(0, 153, 255, 0.15);
+  position: relative;
+
+  overflow-y: auto;
+  max-height: 640px;
+  padding-right: 14px;
+}
+
+.left::-webkit-scrollbar {
+  width: 4px;
+}
+.left::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00D27F, #0099FF);
+  border-radius: 10px;
+}
+
+.heading {
+  font-size: 44px;
+  font-weight: 900;
+  margin-bottom: 32px;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #00D27F,
+    #0099FF
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  color: #e6fffb;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 10px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+.right {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 153, 255, 0.25);
+  color: #eafffb;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.step:hover {
+  border-color: #00D27F;
+  box-shadow: 0 0 24px rgba(0, 153, 255, 0.35);
+}
+
+.active {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 210, 127, 0.45),
+    rgba(0, 153, 255, 0.35)
+  );
+  border-color: #00D27F;
+  box-shadow:
+    0 0 40px rgba(0, 210, 127, 0.55),
+    inset 0 0 0 1px rgba(0, 153, 255, 0.35);
+}
+
+.index {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #00D27F,
+    #0099FF
+  );
+  color: #00130c;
+}
+
+.name {
+  font-size: 15px;
+  color: #cffff4;
+}
+
+/* =====================================================
+   📱 MOBILE FIXES (ONLY OVERRIDES – DESKTOP UNTOUCHED)
+===================================================== */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 72px 16px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .left {
+    width: 100%;
+    padding: 28px 22px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .list li {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .right {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .step {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .index {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+}

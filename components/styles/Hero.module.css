@@ -1,0 +1,386 @@
+:root {
+  --cx-accent: #00d27f; /* main brand color */
+  --cx-accent-soft: rgba(0, 210, 127, 0.55);
+  --cx-deep: #020617;
+  --cx-mid: #031227;
+  --cx-cyan: #00e5ff;
+  --cx-blue: #1d4ed8;
+  --cx-plasma: rgba(56, 189, 248, 0.7);
+}
+
+/* ROOT SECTION ------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  background: radial-gradient(circle at 0% 0%, #020b1d 0%, var(--cx-deep) 60%, #000 100%);
+  overflow: hidden;
+}
+
+/* ======================================================================= */
+/*                        BACKGROUND LAYERS — GOD MODE                     */
+/* ======================================================================= */
+
+/* 1) Electromagnetic Conic Energy Field ---------------------------------- */
+
+.energyField {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Center glow */
+    radial-gradient(circle at 50% 42%, rgba(15, 118, 110, 0.55), transparent 55%),
+    radial-gradient(circle at 50% 42%, rgba(0, 210, 127, 0.35), transparent 70%),
+    /* Conic spin */
+    conic-gradient(
+      from 160deg,
+      rgba(0, 210, 127, 0.0),
+      rgba(0, 210, 127, 0.55),
+      rgba(56, 189, 248, 0.5),
+      rgba(99, 102, 241, 0.5),
+      rgba(0, 210, 127, 0.55),
+      rgba(0, 210, 127, 0.0)
+    );
+  mix-blend-mode: screen;
+  filter: blur(38px);
+  opacity: 0.6;
+  animation: energyRotate 28s linear infinite;
+  z-index: 1;
+}
+
+/* 2) Quantum Grid (pulsating network) ------------------------------------ */
+
+.quantumGrid {
+  position: absolute;
+  inset: -40px;
+  background-image:
+    linear-gradient(rgba(0, 210, 127, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.24;
+  mix-blend-mode: overlay;
+  animation: gridPulse 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* 3) Plasma Rings --------------------------------------------------------- */
+
+.plasmaRings {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 210, 127, 0.18), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.18), transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.45;
+  animation: ringsSpin 22s linear infinite;
+  z-index: 3;
+}
+
+/* 4) Neural Noise (galaxy hologram) -------------------------------------- */
+
+.neuralNoise {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 60% 40%, rgba(56, 189, 248, 0.12), transparent 55%),
+    radial-gradient(circle at 35% 60%, rgba(0, 210, 127, 0.12), transparent 60%);
+  mix-blend-mode: soft-light;
+  opacity: 0.35;
+  animation: neuralFlow 18s ease-in-out infinite;
+  z-index: 4;
+}
+
+/* 5) Stars Canvas (from JS) ---------------------------------------------- */
+
+.aiStars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+
+/* ======================================================================= */
+/*                                CONTENT                                  */
+/* ======================================================================= */
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 120px 26px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Massive holographic core behind text */
+
+.coreGlow {
+  position: absolute;
+  right: -20px;
+  top: 10%;
+  width: 580px;
+  height: 580px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.4), transparent 55%),
+    radial-gradient(circle at 50% 70%, rgba(56, 189, 248, 0.75), transparent 65%),
+    radial-gradient(circle at 40% 80%, rgba(0, 210, 127, 0.75), transparent 70%);
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  animation: corePulse 9s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+/* Inner wrapper  (no box) */
+
+.inner {
+  position: relative;
+  max-width: 700px;
+  padding: 10px 0 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+/* HUD Strip – quantum chip look */
+
+.hud {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 1),
+    0 12px 30px rgba(15, 23, 42, 0.9),
+    0 0 24px rgba(0, 210, 127, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+.hudDot {
+  width: 9px;
+  height: 9px;
+  background: var(--cx-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(0, 210, 127, 0.9);
+  animation: pulse 1.6s infinite;
+}
+
+.hudLabel {
+  font-size: 11px;
+  color: #e5e7eb;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(15, 23, 42, 0.9);
+}
+
+.hudStatus {
+  font-size: 11px;
+  color: #a5b4fc;
+  text-shadow: 0 0 10px rgba(15, 23, 42, 0.9);
+}
+
+/* Title – CLEAN ultra-premium (no muddy glow) */
+
+.title {
+  margin-top: 24px;
+  font-size: clamp(46px, 5.4vw, 64px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #f9fafb; /* crisp white */
+  text-shadow:
+    0 0 18px rgba(15, 23, 42, 0.9),
+    0 14px 40px rgba(0, 0, 0, 0.9),
+    0 0 26px rgba(0, 210, 127, 0.35); /* subtle quantum glow */
+}
+
+/* Subtitle – console clean */
+
+.subtitle {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.94);
+  max-width: 540px;
+  text-shadow: 0 0 10px rgba(15, 23, 42, 0.9);
+}
+
+/* CTA Buttons */
+
+.ctaRow {
+  margin-top: 26px;
+  display: flex;
+  gap: 14px;
+}
+
+.primary {
+  padding: 14px 28px;
+  background: radial-gradient(circle at 20% 0, #d1fae5, #34f5a4);
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  color: #012b1c;
+  box-shadow:
+    0 16px 36px rgba(0, 210, 127, 0.8),
+    0 0 0 1px rgba(0, 210, 127, 0.9),
+    0 0 32px rgba(0, 210, 127, 0.7);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 22px 44px rgba(0, 210, 127, 0.95),
+    0 0 0 1px rgba(0, 210, 127, 1),
+    0 0 40px rgba(0, 210, 127, 0.9);
+  filter: saturate(1.1);
+}
+
+.secondary {
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.75);
+  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.96));
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 26px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.secondary:hover {
+  border-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 36px rgba(15, 23, 42, 0.95),
+    0 0 24px rgba(148, 163, 184, 0.6);
+}
+
+/* Metrics – holographic stat blocks */
+
+.metrics {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.metricCard {
+  padding: 12px 14px;
+  min-width: 150px;
+  border-radius: 18px;
+  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.98), rgba(8, 20, 35, 0.98));
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.85),
+    0 0 26px rgba(15, 23, 42, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.metricCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 120% -20%, rgba(56, 189, 248, 0.23), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.metricLabel {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.metricValue {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f9fafb;
+  text-shadow: 0 0 12px rgba(15, 23, 42, 0.9);
+}
+
+/* Tags – small AI chips */
+
+.tags {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.65);
+  color: #e2e8f0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.75),
+    0 0 20px rgba(15, 23, 42, 0.85);
+}
+
+/* ======================================================================= */
+/*                          ANIMATIONS                                     */
+/* ======================================================================= */
+
+@keyframes energyRotate {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes gridPulse {
+  0%   { opacity: 0.22; transform: scale(1); }
+  50%  { opacity: 0.32; transform: scale(1.04); }
+  100% { opacity: 0.22; transform: scale(1); }
+}
+
+@keyframes ringsSpin {
+  0%   { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes neuralFlow {
+  0%   { transform: rotate(-2deg) scale(1); opacity: 0.28; }
+  50%  { transform: rotate(2deg) scale(1.04); opacity: 0.42; }
+  100% { transform: rotate(-2deg) scale(1); opacity: 0.28; }
+}
+
+@keyframes corePulse {
+  0%   { transform: scale(1); opacity: 0.85; }
+  50%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 210, 127, 0.7); }
+  70%  { box-shadow: 0 0 0 12px rgba(0, 210, 127, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 210, 127, 0); }
+}

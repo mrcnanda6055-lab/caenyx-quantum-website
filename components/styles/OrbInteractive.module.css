@@ -1,0 +1,309 @@
+/* =====================
+   LAYOUT
+   ===================== */
+
+.wrapper {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* =====================
+   CORE + GLOW
+   ===================== */
+
+.glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #26ffd4 0%, #020b13 70%);
+  filter: blur(40px);
+  opacity: 0.55;
+}
+
+.core {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    #ffffff 0%,
+    #b8fff0 22%,
+    #12f2aa 48%,
+    #031319 100%
+  );
+  box-shadow:
+    0 0 80px rgba(0, 255, 210, 0.6),
+    0 0 130px rgba(0, 255, 210, 0.28);
+}
+
+/* =====================
+   ORBIT RINGS (old vibe)
+   ===================== */
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(94, 255, 196, 0.18);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6) inset;
+}
+
+.ring1 { width: 230px; height: 230px; }
+.ring2 { width: 260px; height: 260px; }
+.ring3 { width: 290px; height: 290px; }
+.ring4 { width: 320px; height: 320px; }
+.ring5 { width: 345px; height: 345px; }
+
+/* =====================
+   ORBIT CONTAINERS
+   ===================== */
+
+.orbit {
+  position: absolute;
+  width: 345px;
+  height: 345px;
+  border-radius: 50%;
+  will-change: transform;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Each orbit has its own keyframes with starting angle,
+   so nodes don't need rotate+translate combo (super smooth). */
+.speed1 { animation: spin1 22s linear infinite; }
+.speed2 { animation: spin2 28s linear infinite; }
+.speed3 { animation: spin3 33s linear infinite; }
+.speed4 { animation: spin4 38s linear infinite; }
+.speed5 { animation: spin5 18s linear infinite; }
+.speed6 { animation: spin6 24s linear infinite; }
+
+/* =====================
+   NODES (ultra-premium circles)
+   ===================== */
+
+.node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  font-weight: 650;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #ecfff9;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(180, 255, 240, 0.6);
+  box-shadow:
+    0 0 18px rgba(0, 0, 0, 0.9),
+    0 0 24px rgba(0, 255, 210, 0.4);
+}
+
+/* ----- Different sizes + colours (all circles) ----- */
+
+/* AI – main node, teal */
+.ai {
+  width: 54px;
+  height: 54px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #80ffe2 0%,
+    #0b2028 55%,
+    #02070e 100%
+  );
+  box-shadow:
+    0 0 22px rgba(0, 255, 210, 0.85),
+    0 0 34px rgba(0, 255, 210, 0.45);
+  /* radius only; angle handled by orbit keyframes */
+  transform: translateX(165px);
+}
+
+/* DATA – cyan/blue */
+.data {
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #9ad5ff 0%,
+    #061c2b 55%,
+    #010711 100%
+  );
+  box-shadow:
+    0 0 20px rgba(120, 200, 255, 0.8),
+    0 0 30px rgba(120, 200, 255, 0.4);
+  transform: translateX(168px);
+}
+
+/* UX – purple */
+.ux {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #e1c2ff 0%,
+    #231438 55%,
+    #050310 100%
+  );
+  box-shadow:
+    0 0 18px rgba(210, 160, 255, 0.8),
+    0 0 26px rgba(210, 160, 255, 0.45);
+  transform: translateX(140px);
+}
+
+/* OPS – amber */
+.ops {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #ffe9b0 0%,
+    #2b1b05 55%,
+    #090301 100%
+  );
+  box-shadow:
+    0 0 18px rgba(255, 210, 130, 0.8),
+    0 0 26px rgba(255, 210, 130, 0.45);
+  transform: translateX(172px);
+}
+
+/* DEV – pink satellite */
+.dev {
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #ffbeda 0%,
+    #3a0f27 55%,
+    #08020b 100%
+  );
+  box-shadow:
+    0 0 16px rgba(255, 160, 210, 0.8),
+    0 0 22px rgba(255, 160, 210, 0.4);
+  font-size: 9px;
+  transform: translateX(152px);
+}
+
+/* SEC – aqua satellite */
+.sec {
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(
+    circle at 25% 20%,
+    #b7fff0 0%,
+    #043033 55%,
+    #020909 100%
+  );
+  box-shadow:
+    0 0 16px rgba(160, 255, 230, 0.8),
+    0 0 22px rgba(160, 255, 230, 0.4);
+  font-size: 9px;
+  transform: translateX(145px);
+}
+
+/* subtle hover – keep transform same (no jitter) */
+.node:hover {
+  filter: brightness(1.18);
+}
+
+/* =====================
+   ORBIT KEYFRAMES (angles baked in)
+   ===================== */
+
+/* Previous angles:
+   AI  = -90deg
+   DATA=   0deg
+   UX  = 145deg
+   OPS = 215deg
+   DEV =  60deg
+   SEC = 300deg
+*/
+
+@keyframes spin1 {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }   /* -90 + 360 */
+}
+
+@keyframes spin2 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spin3 {
+  from { transform: rotate(145deg); }
+  to   { transform: rotate(505deg); }   /* 145 + 360 */
+}
+
+@keyframes spin4 {
+  from { transform: rotate(215deg); }
+  to   { transform: rotate(575deg); }   /* 215 + 360 */
+}
+
+@keyframes spin5 {
+  from { transform: rotate(60deg); }
+  to   { transform: rotate(420deg); }   /* 60 + 360 */
+}
+
+@keyframes spin6 {
+  from { transform: rotate(300deg); }
+  to   { transform: rotate(660deg); }   /* 300 + 360 */
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 270px;
+    height: 270px;
+  }
+
+  .glow {
+    width: 230px;
+    height: 230px;
+    filter: blur(32px);
+  }
+
+  .core {
+    width: 130px;
+    height: 130px;
+  }
+
+  .ring1 { width: 180px; height: 180px; }
+  .ring2 { width: 205px; height: 205px; }
+  .ring3 { width: 225px; height: 225px; }
+  .ring4 { width: 245px; height: 245px; }
+  .ring5 { width: 260px; height: 260px; }
+
+  .orbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .ai   { width: 44px; height: 44px; transform: translateX(120px); }
+  .data { width: 38px; height: 38px; transform: translateX(124px); }
+  .ux   { width: 32px; height: 32px; transform: translateX(100px); }
+  .ops  { width: 40px; height: 40px; transform: translateX(126px); }
+  .dev  { width: 28px; height: 28px; transform: translateX(108px); }
+  .sec  { width: 30px; height: 30px; transform: translateX(104px); }
+
+  .node {
+    font-size: 9px;
+  }
+
+  .dev,
+  .sec {
+    font-size: 8px;
+  }
+}

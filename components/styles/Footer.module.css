@@ -1,0 +1,209 @@
+.footer {
+  width: 100%;
+  padding: 32px 16px 28px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0, 210, 127, 0.18) 0, transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(0, 179, 255, 0.18) 0, transparent 55%),
+    radial-gradient(circle at 50% 130%, rgba(0, 210, 127, 0.14) 0, transparent 55%),
+    #020617;
+  border-top: 1px solid rgba(0, 210, 127, 0.45);
+  box-shadow: 0 -18px 60px rgba(0, 210, 127, 0.18);
+  display: flex;
+  justify-content: center;
+}
+
+/* glass card inside */
+
+.inner {
+  width: 100%;
+  max-width: 1180px;
+  padding: 24px 32px 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96)) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(0, 210, 127, 0.9),
+      rgba(0, 179, 255, 0.85),
+      rgba(0, 210, 127, 0.95)
+    ) border-box;
+  border: 1px solid transparent;
+  backdrop-filter: blur(26px);
+  box-shadow:
+    0 0 0 1px rgba(0, 210, 127, 0.25),
+    0 20px 55px rgba(0, 210, 127, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* -------- top row -------- */
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.brandBlock {
+  max-width: 320px;
+}
+
+.brandName {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #e5e7eb;
+  text-transform: uppercase;
+}
+
+.brandName span {
+  background: linear-gradient(120deg, #00d27f, #00b3ff, #00d27f);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin-top: 8px;
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+/* link columns */
+
+.linkColumns {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.column {
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.column h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(0, 210, 127, 0.85);
+}
+
+.column a {
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 1px;
+  transition: 0.25s ease;
+}
+
+.column a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00d27f, #00b3ff);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.column a:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 10px rgba(0, 210, 127, 0.7),
+    0 0 18px rgba(0, 179, 255, 0.6);
+}
+
+.column a:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* -------- bottom row -------- */
+
+.bottomRow {
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 210, 127, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.copyright {
+  font-size: 13px;
+  color: rgba(203, 213, 225, 0.9);
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.statusPill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid rgba(0, 210, 127, 0.7);
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 210, 127, 0.3), transparent),
+    radial-gradient(circle at 100% 0, rgba(0, 179, 255, 0.25), transparent);
+  color: rgba(0, 210, 127, 0.95);
+  box-shadow:
+    0 0 22px rgba(0, 210, 127, 0.35),
+    0 0 26px rgba(0, 179, 255, 0.35);
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.bottomLinks span {
+  color: rgba(148, 163, 184, 0.7);
+}
+
+.bottomLinks a {
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  transition: 0.22s ease;
+}
+
+.bottomLinks a:hover {
+  color: #36d5ff; /* green + blue mix in hover text */
+}
+
+/* -------- responsive -------- */
+
+@media (max-width: 900px) {
+  .inner {
+    padding: 20px 18px 16px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bottomRight {
+    flex-wrap: wrap;
+  }
+}

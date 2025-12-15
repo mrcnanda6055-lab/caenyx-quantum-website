@@ -1,0 +1,57 @@
+.page {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.h1 {
+  font-size: 56px;
+  font-weight: 800;
+}
+
+.p {
+  margin-top: 12px;
+  opacity: 0.7;
+}
+
+.scrollerWrap {
+  margin-top: 60px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.scroller {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll 15s linear infinite;
+}
+
+.card {
+  background: #0f172a;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 14px;
+  font-size: 20px;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 16px 32px;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}

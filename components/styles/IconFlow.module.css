@@ -1,0 +1,6 @@
+.wrap { padding: 28px 0; }
+.grid { display:flex; gap:18px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.card { width:160px; text-align:center; background:#fff; border-radius:12px; padding:12px; box-shadow:0 12px 30px rgba(13,24,50,0.04); border:1px solid rgba(15,23,42,0.03); }
+.anim { display:flex; align-items:center; justify-content:center; height:120px; }
+.title { margin-top:8px; font-weight:600; color:var(--slate-dark); }
+@media (max-width:700px){ .grid{gap:12px} .card{width:140px} }

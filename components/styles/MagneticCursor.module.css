@@ -1,0 +1,42 @@
+/* components/styles/MagneticCursor.module.css */
+.cursor, .follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 20000;
+  transform: translate3d(-50%,-50%,0);
+  transition: background .18s ease, transform .18s ease;
+}
+
+/* tiny hard cursor */
+.cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(34,211,238,0.12), 0 6px 18px rgba(2,6,23,0.2);
+  mix-blend-mode: difference;
+  transform-origin:center;
+}
+
+/* smooth soft follower */
+.follower {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 30%, rgba(34,211,238,0.18), rgba(59,130,246,0.12) 40%, rgba(2,6,23,0.04) 70%);
+  backdrop-filter: blur(6px);
+  transform-origin:center;
+  transition: width .22s cubic-bezier(.2,1,.36,1), height .22s cubic-bezier(.2,1,.36,1), opacity .22s;
+  opacity: .95;
+}
+
+/* hover state when over [data-magnetic] items */
+.cursor.hover { transform: translate3d(-50%,-50%,0) scale(0.9); background: #fff; }
+.follower.hover { width: 120px; height: 120px; opacity: .98; }
+
+/* hide on small screens */
+@media (max-width: 900px) {
+  .cursor, .follower { display: none; }
+}

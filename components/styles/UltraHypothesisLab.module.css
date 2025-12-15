@@ -1,0 +1,130 @@
+.section {
+  background: #00040f;
+  padding: 160px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* MAIN PANEL */
+.core {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  border-radius: 42px;
+
+  background: linear-gradient(180deg, #00140e, #00040f);
+  border: 1px solid rgba(0, 210, 127, 0.45);
+
+  box-shadow:
+    0 0 140px rgba(0, 210, 127, 0.35),
+    inset 0 0 0 1px rgba(0, 153, 255, 0.25);
+
+  overflow: hidden;
+}
+
+/* GRID */
+.core::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,210,127,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,153,255,0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.45;
+}
+
+/* LEFT */
+.left {
+  padding: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.left h2 {
+  font-size: 56px;
+  font-weight: 900;
+  margin-bottom: 36px;
+  color: #eafff7;
+}
+
+.left h2 span {
+  background: linear-gradient(90deg, #00D27F, #0099FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TERMINAL LIST */
+.terminal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.terminal li {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  margin-bottom: 14px;
+  color: #d6fff0;
+  animation: typeIn 0.25s ease;
+}
+
+.terminal li::before {
+  content: "▸ ";
+  color: #00D27F;
+}
+
+@keyframes typeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* STEPS */
+.steps {
+  padding: 64px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.steps button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #eafff7;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.steps button span {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00D27F, #0099FF);
+  display: grid;
+  place-items: center;
+  color: #00130c;
+  font-weight: 900;
+}
+
+.steps button:hover,
+.active {
+  border-color: #00D27F;
+  box-shadow: 0 0 36px rgba(0,210,127,0.45);
+}

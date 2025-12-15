@@ -1,0 +1,9 @@
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px;}
+.card{background:#fff;border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid rgba(15,23,42,0.04);box-shadow:0 12px 30px rgba(13,24,50,0.04);}
+.thumb{width:100%;height:160px;object-fit:cover;display:block;}
+.info{padding:12px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999;}
+.modalContent{background:#fff;border-radius:12px;padding:20px;max-width:900px;width:96%;}
+.close{position:absolute;right:18px;top:18px;border:none;background:transparent;font-size:20px;cursor:pointer}
+@media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .grid{grid-template-columns:1fr;} .thumb{height:200px} }

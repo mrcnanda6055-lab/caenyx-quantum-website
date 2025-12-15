@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "4K-3D Design System",
+    "quality": "4K-3D",
+    "version": "2.0"
+  },
+  "design_tokens": {
+    "colors": {
+      "primary": "#00E5FF",
+      "accent": "#FF4081",
+      "bg_dark": "#0B0F1A"
+    },
+    "typography": {
+      "font_family": "Inter, system-ui, sans-serif",
+      "sizes": {
+        "h1": "48px",
+        "body": "16px"
+      }
+    },
+    "spacing": {
+      "base": "8px"
+    }
+  },
+  "ui_components": [
+    {
+      "id": "Hero3D",
+      "purpose": "3D interactive hero with CTA overlay",
+      "props": [
+        "glbPath",
+        "poster",
+        "autoplay",
+        "ctaText"
+      ]
+    },
+    {
+      "id": "ProductCarousel3D",
+      "purpose": "rotating product gallery using instanced meshes",
+      "props": [
+        "items",
+        "onSelect"
+      ]
+    }
+  ],
+  "motion_system": {
+    "philosophy": "Motion supports meaning; micro-interactions are GSAP-driven while large scenes use Three.js tweens.",
+    "gsap_playbooks": [
+      {
+        "name": "heroEntrance",
+        "targets": [
+          ".hero-cta",
+          ".hero-caption"
+        ],
+        "timeline": [
+          {
+            "from": {
+              "y": 40,
+              "opacity": 0
+            },
+            "to": {
+              "y": 0,
+              "opacity": 1
+            },
+            "stagger": 0.12,
+            "duration": 0.6
+          }
+        ]
+      },
+      {
+        "name": "cardHover",
+        "targets": [
+          ".card"
+        ],
+        "onEnter": {
+          "scale": 1.03
+        },
+        "onLeave": {
+          "scale": 1.0
+        }
+      }
+    ],
+    "threejs_guidelines": {
+      "camera": {
+        "fov": 55,
+        "near": 0.1,
+        "far": 1000
+      },
+      "lighting": [
+        "hdr environment map",
+        "key directional light (soft shadows)"
+      ],
+      "postprocess": [
+        "bloom (subtle)",
+        "fxaa"
+      ]
+    }
+  },
+  "asset_spec": {
+    "glb_settings": {
+      "export_format": "glTF 2.0",
+      "draco_compression": true,
+      "texture_size_limit_px": 2048
+    },
+    "image_formats": [
+      "jpg (hero posters)",
+      "webp (responsive)"
+    ],
+    "video": {
+      "codec": "h264",
+      "resolutions": [
+        "4k",
+        "1080p",
+        "720p"
+      ],
+      "bitrate_target_mbps": 6
+    }
+  },
+  "accessibility": {
+    "contrast_ratios": {
+      "text_bg_min": "4.5:1"
+    },
+    "keyboard_support": [
+      "Canvas controls fallback to keyboard-enabled UI overlays"
+    ],
+    "aria": "All non-decorative visuals must have accessible text alternatives in DOM"
+  }
+}

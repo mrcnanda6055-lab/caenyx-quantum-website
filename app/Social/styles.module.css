@@ -1,0 +1,120 @@
+/* app/social/styles.module.css */
+
+/* PAGE WRAPPER */
+.page {
+  padding: 80px 40px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+/* HEADING */
+.h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* SUBTEXT */
+.p {
+  margin-top: 12px;
+  opacity: 0.78;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* BALL CONTAINER */
+.ballWrap {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* SINGLE FLOATING + SPINNING BALL */
+.ball {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #eaf4ff);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
+  border: 1px solid rgba(2, 6, 23, 0.05);
+  transform-origin: center;
+
+  /* 🔥 FLOAT + SPIN TOGETHER */
+  animation: float 4s ease-in-out infinite,
+             spin 12s linear infinite;
+
+  will-change: transform;
+  position: relative;
+}
+
+/* FLAG IMAGE INSIDE BALL */
+.ball img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* OPTIONAL COUNTRY LABEL */
+.ball .label {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  padding: 4px 10px;
+  background: rgba(2, 6, 23, 0.06);
+  color: #021026;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* FLOAT ANIMATION (SOFT SMOOTH) */
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-12px) rotate(2deg); }
+  50%  { transform: translateY(0) rotate(0deg); }
+  75%  { transform: translateY(10px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* SPIN ANIMATION (CONTINUOUS GLOBE ROTATION) */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .ball {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 48px 18px;
+  }
+  .h1 {
+    font-size: 32px;
+    text-align: left;
+  }
+  .ball {
+    width: 78px;
+    height: 78px;
+  }
+}

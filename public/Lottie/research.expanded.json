@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "title": "4K-3D Research Dossier",
+    "quality": "4K-3D",
+    "generated_at": "2025-12-02T13:00:00+01:00",
+    "version": "1.2"
+  },
+  "executive_summary": {
+    "vision": "Build an immersive, high-performance 3D website (webGL) optimized for conversion and developer velocity.",
+    "goals": [
+      "Deliver a smooth 60fps 3D experience on desktop",
+      "Progressive enhancement for mobile (fallbacks to lightweight 2D)",
+      "Accessibility and SEO-friendly content alongside webGL visuals",
+      "Fast TTI (<= 3s on 75th percentile)"
+    ]
+  },
+  "market_analysis": {
+    "opportunity": "Interactive product storytelling using 3D increases engagement and dwell time; target: SaaS, hardware, and experiential brands.",
+    "trend_signals": [
+      "Rising adoption of glTF/GLB assets on web",
+      "Tooling maturity: Three.js + React Three Fiber",
+      "Edge-hosting & CDN-first delivery (Vercel, Cloudflare)"
+    ],
+    "audience_personas": [
+      {
+        "id": "p1",
+        "name": "Technical Buyer",
+        "needs": [
+          "specs",
+          "case studies"
+        ],
+        "device": "desktop"
+      },
+      {
+        "id": "p2",
+        "name": "C-Level",
+        "needs": [
+          "ROI",
+          "quick impression"
+        ],
+        "device": "tablet"
+      },
+      {
+        "id": "p3",
+        "name": "Creator",
+        "needs": [
+          "visuals",
+          "shareability"
+        ],
+        "device": "mobile"
+      }
+    ]
+  },
+  "competitor_breakdown": [
+    {
+      "name": "BrandA",
+      "strengths": [
+        "cinematic hero glTF",
+        "fast LCP"
+      ],
+      "weaknesses": [
+        "poor accessibility"
+      ]
+    },
+    {
+      "name": "BrandB",
+      "strengths": [
+        "interactive configurator"
+      ],
+      "weaknesses": [
+        "slow mobile fallback"
+      ]
+    }
+  ],
+  "tech_risks_and_mitigations": {
+    "large_asset_delivery": {
+      "risk": "High",
+      "mitigation": [
+        "DRACO compression",
+        "server-driven LOD",
+        "use CDN with range requests"
+      ]
+    },
+    "mobile_performance": {
+      "risk": "Medium",
+      "mitigation": [
+        "fallback sprite sheets",
+        "deferred heavy assets",
+        "adaptive device budgets"
+      ]
+    },
+    "dev_complexity": {
+      "risk": "Medium",
+      "mitigation": [
+        "componentized R3F patterns",
+        "design tokens",
+        "strict code ownership"
+      ]
+    }
+  },
+  "metrics_and_kpis": {
+    "engagement": {
+      "dwell_time_target_seconds": 120
+    },
+    "performance": {
+      "TTI_target_seconds": 3.0,
+      "LCP_target_seconds": 2.5
+    },
+    "conversion": {
+      "baseline": 0.9,
+      "target_percent_increase": 15
+    }
+  },
+  "assets_inventory": {
+    "3d_models": [
+      {
+        "id": "hero_glb",
+        "path": "public/3d/hero.glb",
+        "size_bytes_estimate": 3800000,
+        "lod": [
+          "hero_lod0.glb",
+          "hero_lod1.glb"
+        ],
+        "compress": "draco"
+      },
+      {
+        "id": "product_config_glb",
+        "path": "public/3d/product_config.glb",
+        "size_bytes_estimate": 2500000
+      }
+    ],
+    "videos": [
+      {
+        "id": "bg_4k",
+        "path": "public/video/bg_4k.mp4",
+        "purpose": "hero background fallback",
+        "codec": "h264"
+      }
+    ],
+    "images": [
+      {
+        "id": "poster",
+        "path": "public/img/poster_4k.jpg",
+        "res": "3840x2160"
+      }
+    ]
+  },
+  "recommended_stack": {
+    "frontend": [
+      "React 18",
+      "Vite",
+      "React Three Fiber",
+      "GSAP (for micro-timelines)",
+      "Three.js (core)"
+    ],
+    "backend": [
+      "Node.js",
+      "Express",
+      "Supabase (auth + DB + storage)"
+    ],
+    "hosting": [
+      "Vercel for frontend",
+      "Cloudflare CDN",
+      "Render/Planetscale for complex APIs if needed"
+    ]
+  },
+  "recommended_research_next_steps": [
+    "Create a proof-of-concept Three.js hero (desktop only) and measure LCP",
+    "Run synthetic tests with Lighthouse and real-user monitoring (RUM)",
+    "Create two mobile fallbacks (sprite and compressed video) and A/B test"
+  ]
+}

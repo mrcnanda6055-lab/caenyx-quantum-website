@@ -1,0 +1,326 @@
+.section {
+  position: relative;
+  padding: 96px 0 120px;
+  background: radial-gradient(circle at 0% 0%, #032c36, #020714 55%, #020611 100%);
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(320px, 1.3fr);
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* LEFT */
+
+.left {
+  max-width: 640px;
+}
+
+.kicker {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1ddf71;
+  margin-bottom: 8px;
+}
+
+.heading {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #f8feff;
+  margin-bottom: 12px;
+}
+
+.subheading {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #c6dde4;
+  margin-bottom: 24px;
+}
+
+/* chips */
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tagChip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(132, 178, 194, 0.45);
+  background: radial-gradient(circle at 0% 0%, #051822, #050b14 85%);
+  color: #f3fbff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.12s ease;
+}
+
+.tagChip:hover {
+  border-color: rgba(140, 255, 210, 0.8);
+  transform: translateY(-1px);
+}
+
+.tagChipActive {
+  border-color: rgba(140, 255, 210, 0.95);
+  background: radial-gradient(circle at 0% 0%, #0f3f30, #040910 85%);
+}
+
+/* Q&A list */
+
+.qaList {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qaItem {
+  width: 100%;
+  border-radius: 16px;
+  padding: 14px 16px;
+  text-align: left;
+  background: radial-gradient(circle at 0% 0%, #051722, #050a14 80%);
+  border: 1px solid rgba(58, 94, 112, 0.5);
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.1s ease;
+}
+
+.qaItem:hover {
+  border-color: rgba(120, 230, 200, 0.8);
+  transform: translateY(-1px);
+}
+
+.qaItemActive {
+  background: radial-gradient(circle at 0% 0%, #0a3133, #050814 80%);
+  border-color: rgba(140, 255, 210, 0.95);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+}
+
+.qaQuestion {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f2fdff;
+  margin-bottom: 6px;
+}
+
+.qaAnswer {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c3dde3;
+}
+
+/* RIGHT – AGENT CARD */
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.agentCard {
+  position: relative;
+  border-radius: 28px;
+  padding: 24px 24px 20px;
+  background: radial-gradient(circle at 10% 0%, #061b24, #020611 70%);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(120, 255, 210, 0.12);
+  max-width: 340px;
+  width: 100%;
+}
+
+/* subtle glow when playing */
+.agentCardPlaying {
+  box-shadow:
+    0 0 0 1px rgba(120, 255, 210, 0.45),
+    0 0 40px rgba(0, 255, 190, 0.6),
+    0 26px 80px rgba(0, 0, 0, 0.95);
+}
+
+/* ORB */
+
+.agentOrb {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 18px;
+}
+
+.agentOrbGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #23f5b0, transparent 70%);
+  filter: blur(28px);
+  opacity: 0.8;
+}
+
+.agentOrbRingOuter,
+.agentOrbRingInner {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(120, 255, 210, 0.25);
+}
+
+.agentOrbRingOuter {
+  inset: 8px;
+}
+
+.agentOrbRingInner {
+  inset: 24px;
+  border-style: dashed;
+  opacity: 0.6;
+  animation: ringSpin 18s linear infinite;
+}
+
+.agentOrbCore {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    #ffffff 0%,
+    #a5ffe8 30%,
+    #11e79f 55%,
+    #021015 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: 15px;
+  color: #02100a;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* BODY */
+
+.agentBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agentLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #aef4dd;
+}
+
+.agentText {
+  font-size: 14px;
+  color: #d6f3ec;
+  line-height: 1.5;
+}
+
+.agentActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.playButton {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: radial-gradient(circle at 0% 0%, #19f0ae, #046b4c 80%);
+  color: #02110b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.65),
+    0 8px 22px rgba(0, 0, 0, 0.9);
+}
+
+.playButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.playIcon {
+  font-size: 14px;
+}
+
+.askLink {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: #6be5ff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.anythingLink {
+  margin-top: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: #6be5ff;
+  cursor: pointer;
+}
+
+.agentNote {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #7fa19a;
+}
+
+/* ANIMATIONS */
+
+@keyframes ringSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 920px) {
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .right {
+    justify-content: flex-start;
+  }
+
+  .agentCard {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0 96px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,47 @@
+:root{
+  --caenyx-blue: #3B82F6;
+  --neon: #22D3EE;
+  --slate-dark: #0F172A;
+  --bg-100: #f8fafc;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#__next{height:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; color:var(--slate-dark); background:var(--bg-100);}
+
+/* Hero background layers (Jeton vibe) */
+.hero-bg{
+  background:
+    radial-gradient(1200px 400px at 10% 20%, rgba(34,211,238,0.12), transparent 10%),
+    radial-gradient(900px 300px at 90% 80%, rgba(59,130,246,0.08), transparent 12%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Floating ball base */
+.floating-ball {
+  border-radius:999px;
+  box-shadow: 0 8px 30px rgba(59,130,246,0.16), inset 0 2px 8px rgba(255,255,255,0.12);
+  background: linear-gradient(135deg, rgba(34,211,238,0.18), rgba(59,130,246,0.22));
+  backdrop-filter: blur(4px);
+}
+
+/* stripe thin glow */
+.stripe {
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34,211,238,0), rgba(34,211,238,0.7), rgba(34,211,238,0));
+  filter: blur(1px);
+  opacity: 0.3;
+}
+
+/* Keyframes */
+@keyframes float { 0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)} }
+@keyframes drift { 0%{transform:translateX(0) translateY(0) scale(1)}50%{transform:translateX(30px) translateY(-10px) scale(1.05)}100%{transform:translateX(0) translateY(0) scale(1)} }
+@keyframes stripeGlow { 0%{opacity:0.15; transform:translateX(-10px)}50%{opacity:0.6; transform:translateX(10px)}100%{opacity:0.15; transform:translateX(-10px)} }
+
+/* utility */
+.center { max-width:1250px; margin:0 auto; padding:0 28px; }
+.btn-primary { background:var(--caenyx-blue); color:#fff; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:700; display:inline-block;}
