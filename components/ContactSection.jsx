@@ -95,15 +95,15 @@ export default function ContactSection() {
                   />
                 </div>
 
-                  <div className={styles.field}>
-                    <label htmlFor="phone">WhatsApp / Phone*</label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="+91..."
-                    />
-                  </div>
+                <div className={styles.field}>
+                  <label htmlFor="phone">WhatsApp / Phone*</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+91..."
+                  />
+                </div>
               </div>
 
               <div className={styles.grid2}>
@@ -113,11 +113,18 @@ export default function ContactSection() {
                     <option value="" disabled>
                       Select an option
                     </option>
-                    <option value="website">Website / Landing page</option>
-                    <option value="dashboard">Dashboard / Internal tool</option>
-                    <option value="automation">AI / Workflow automation</option>
-                    <option value="whatsapp">WhatsApp funnels / Bots</option>
-                    <option value="other">Something else</option>
+                    <option value="ai-automation">AI & Automation</option>
+                    <option value="whatsapp-systems">WhatsApp Systems</option>
+                    <option value="dashboards">Dashboards & Analytics</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="mobile-apps">Mobile App Development</option>
+                    <option value="cloud-devops">Cloud & DevOps</option>
+                    <option value="integrations">Integrations</option>
+                    <option value="branding-uiux">Branding & UI/UX</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="enterprise-software">Enterprise Software</option>
+                    <option value="support-maintenance">Support & Maintenance</option>
+                    <option value="white-label">White-Label Services</option>
                   </select>
                 </div>
 
@@ -127,10 +134,12 @@ export default function ContactSection() {
                     <option value="" disabled>
                       Select a range
                     </option>
-                    <option value="5-10">₹5–10L</option>
-                    <option value="10-25">₹10–25L</option>
-                    <option value="25-50">₹25–50L</option>
-                    <option value="50+">₹50L+</option>
+                    <option value="below-1l">Below ₹1L</option>
+  <option value="1-5l">₹1L – ₹5L</option>
+  <option value="5-10l">₹5L – ₹10L</option>
+  <option value="10-25l">₹10L – ₹25L</option>
+  <option value="25-50l">₹25L – ₹50L</option>
+  <option value="50plus">₹50L+ (Enterprise)</option>
                   </select>
                 </div>
               </div>
